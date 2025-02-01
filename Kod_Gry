@@ -1,0 +1,373 @@
+from random import randrange
+
+import time
+
+def spowolnij_wypisywanie(tekst, czas=0.05):
+    """Funkcja spowalniająca wypisywanie tekstu."""
+    for znak in tekst:
+        print(znak, end='', flush=True)
+        time.sleep(czas)  # Czas opóźnienia dla każdego znaku
+    print()
+
+czy_poprawna = False
+Egg=0
+poziom = 1
+zycie=5
+pochodnia = False
+kartka = False
+spowolnij_wypisywanie("Witaj w Nieznanym Świecie Graczu.\nJako gracz możesz przeżyć na różne sposoby krótką historię.\nHistoria odgrywa się w formie tekstu. Narratora albo opisy możesz rozpoznać poprzez znaki **\nDialogi poprzez myslniki <->, albo poprzez brak znaku poprzedzającego\nZależnie od Twoich decyzji, oraz Twojego szczęscia podczas rozgrywki będą działy się różne rzeczy.\nNa koniec rozgrywki podsumowane zostaną Twoje decyzję poprzez krótki opis stanu bohatera, którym będziesz przechodził przez różne POMIESZCZENIA.\nRozgrywka może przechodzić dalej poprzez Twój wybór\nA teraz krótka próba jak działa mechanika gry.\n")
+spowolnij_wypisywanie("Wybierz odpowiedź <Gramy> poprzez wpisanie cyfry przed odpowiedzią")
+spowolnij_wypisywanie("1.Gramy\n2.Drugi wybór")
+while czy_poprawna == False:
+    odpowiedz = input()
+    if(odpowiedz == "1"):
+        spowolnij_wypisywanie("Już wiesz jak działa gra, a teraz czas zacząć rozgrywkę")
+        czy_poprawna = True
+    elif(odpowiedz == "2"):
+        spowolnij_wypisywanie("Tak działa druga odpowiedź. A teraz wybierz odpowiedź 1. aby przejsć dalej")
+    else:
+        spowolnij_wypisywanie("podaj inną odpowiedź")
+print("---Zaczynamy---")
+czy_poprawna = False
+spowolnij_wypisywanie("*Znajdujesz się w dziwnym ciemnym pokoju. Nie wiesz co tu robisz,\nale wiesz że musisz się jakos stąd wydostać, musisz zacząć działać.\nRozglądasz się po pokoju*")
+spowolnij_wypisywanie("*Pod Twoimi nogami znajduje się kartka papieru, czy chcesz ją podniesc?*\n1.podnies\n2.zignoruj")
+
+while czy_poprawna == False:
+    odpowiedz = input()
+    if(odpowiedz == "1"):
+         spowolnij_wypisywanie("podnosisz kartkę na której widzisz dziwny kod\n**Prosto,Lewo,Prosto,sciana**")
+         kartka = True
+         czy_poprawna = True
+    elif(odpowiedz == "2"):
+        spowolnij_wypisywanie("to mogła być błędna decyzja")
+        czy_poprawna = True
+    else:
+        print("*Błędna odpowiedź*")
+czy_poprawna = False
+
+while czy_poprawna == False:
+    spowolnij_wypisywanie("*Widzisz przed sobą duże drewniane drzwi, czy chcesz je otworzyć?*\n1.Tak\n2.Nie")
+    odpowiedz = input()
+    if(odpowiedz == "1"):
+        spowolnij_wypisywanie("Muszę isć do wyjscia...")
+        czy_poprawna = True
+    elif(odpowiedz == "2"):
+        spowolnij_wypisywanie("...")
+        Egg+=1
+        if(Egg == 15 and poziom == 1):
+            poziom+=1
+            spowolnij_wypisywanie("*Poczułes się trochę silniejszy*\nHmmm... dziwne ")
+        if(Egg == 50 and poziom==2):
+            poziom+=10
+            spowolnij_wypisywanie("*Poczułes się o wiele silniejszy*\nWow to jest moc!")
+        if(Egg == 100):
+            spowolnij_wypisywanie("*Nie czujesz żadnej różnicy*")
+    else:
+        spowolnij_wypisywanie("bledne dane odpowiedzi")
+czy_poprawna = False
+spowolnij_wypisywanie("*Przechodzisz przez drzwi. Znajdujesz się w mrocznym miejscu, przed tobą wisi pochodnia,\nktóra jest jedynym źródłem swiatła w tym miejscu. Mogłaby się bardzo przydać, bo niewiadomo co może Ciebie czekać\nCzy chcesz ją podniesć?*\n1.Tak\n2.Nie")
+
+while czy_poprawna == False:
+    odpowiedz = input()
+    if(odpowiedz == "1"):
+        spowolnij_wypisywanie("*Chwytasz pochodnie do ręki*\nPowinna się przydać...")
+        pochodnia = True
+        czy_poprawna = True
+    elif(odpowiedz == "2"):
+        spowolnij_wypisywanie("Potrafię dobrze widzieć po ciemku, nic nie powinno mi umknąć...raczej...")
+        czy_poprawna = True
+czy_poprawna = False
+spowolnij_wypisywanie("*Zauważasz stare drewniane drzwi po prawej stronie, oraz używane stalowe drzwi po lewej stronie*\nHmmm które drzwi powinienem wybrać?\n1.Idź przez stalowe drzwi po lewej\n2.Przejdź przez drewniane drzwi po stronie prawej")
+
+while True:
+    odpowiedz = input()
+    #dungeon po lewej stronie
+    if(odpowiedz == "1"):
+        spowolnij_wypisywanie("*Przechodzisz przez drzwi po lewej stronie. Pomieszczenie do którego wchodzisz jest dobrze oswietlone,\nna srodku pokoju zauważasz małego goblina ze sztyletem, za goblinem widzisz drzwi,\nale przy pasie goblina widzisz mały flakon z czerwonym płynem*\n*Co zamierzasz zrobić?*\n1.Zaatakuj goblina\n2.Spróbuj porozmawiać z goblinem\n3.Przekradnij się obok goblina")
+        Przekradnij_sie=False
+        goblin_hp=1
+        goblin_poz=1
+        odpowiedz = input()
+        while(goblin_hp>0 and Przekradnij_sie==False):
+            if(odpowiedz == "1"):
+                spowolnij_wypisywanie("*atakujesz goblina z zaskoczenia, czy efektywnie?*")
+                losowa = randrange(poziom-goblin_poz,10)
+                if(losowa>3):
+                    poziom+=1
+                    spowolnij_wypisywanie("*unieszkodliwiłes goblina bez narażania życia*\nUdało się! Czuję się silniejszy po tej walce! \nA teraz co mam zrobić z czerwonym flakonem?\n1.Wypij i idź do następnego pokoju\n2.Zostaw i idź do następnego pokoju")
+                    while True:
+                        odpowiedz=input()
+                        if(odpowiedz == "1"):
+                            spowolnij_wypisywanie("*Pijesz flakon z czerwonym płynem i zaczynasz się lepiej czuć*\nTrochę gorzkie, ale czuję się lepiej")
+                            spowolnij_wypisywanie("*Przechodzisz do następnego pokoju*")
+                            zycie+=1
+                            break
+                        elif(odpowiedz == "2"):
+                            spowolnij_wypisywanie("Nie będe ryzykował swoim życiem...Nie wiadomo co w nim jest...")
+                            spowolnij_wypisywanie("*Przechodzisz do następnego pokoju*")
+                            break
+                        else:
+                            print("*Błędna odpowiedź*")
+                    goblin_hp = 0
+                else:
+                    poziom += 1
+                    zycie -= 1
+                    spowolnij_wypisywanie("*goblin w ostatniej chwili dowrócił się i zadał Ci cios.\nUdało się, ale doznałem obrażeń. Czuję się jednak silniejszy po tej walce! \nA teraz co mam zrobić z czerwonym flakonem?\n1.Wypij i idź do następnego pokoju\n2.Zostaw i idź do następnego pokoju")
+                    while True:
+                        odpowiedz=input()
+                        if(odpowiedz == "1"):
+                            spowolnij_wypisywanie("*Pijesz flakon z czerwonym płynem i zaczynasz się lepiej czuć*\nTrochę gorzkie, ale czuję się lepiej")
+                            spowolnij_wypisywanie("*Przechodzisz do następnego pokoju*")
+                            zycie+=1
+                            break
+                        elif(odpowiedz == "2"):
+                            spowolnij_wypisywanie("Nie będe ryzykował swoim życiem...Nie wiadomo co w nim jest...")
+                            spowolnij_wypisywanie("*Przechodzisz do następnego pokoju*")
+                            break
+                        else:
+                            print("*Błędna odpowiedź*")
+                    goblin_hp=0
+            elif(odpowiedz=="2"):
+                spowolnij_wypisywanie("*Próbujesz zacząć rozmowę z Goblinem.*\n-Przychodzę w pokoju, nie chcę cię skrzywdzić\n-Khhhr\n*Goblin cię nie zrozumiał i zaatakował*\n*Po cięzkiej walcę pokonałes goblina, ale ten wypił tajemniczy flakon podczas walki*\nUff, jakos się udało, szkoda jednak tego dziwnego flakonu...")
+                zycie-=1
+                poziom+=1
+                spowolnij_wypisywanie("Czuje się jednak trochę silniejszy!")
+                spowolnij_wypisywanie("*Przechodzisz do następnego pokoju*")
+                goblin_hp=0
+            elif(odpowiedz=="3"):
+                spowolnij_wypisywanie("*Próbujesz przekrasć się obok goblina...*")
+                losowa = randrange(poziom - goblin_poz, 5)
+                if(losowa>2):
+                    spowolnij_wypisywanie("*Udało ci się przejsć po cichu obok goblina*\n")
+                    spowolnij_wypisywanie("*Przechodzisz do następnego pokoju*")
+                    Przekradnij_sie = True
+                else:
+                    spowolnij_wypisywanie("*Goblin zauważył jak nieudolnie próbujesz przekrasć się w kącie pokoju i cię zaatakował*\n*Na szczęscie ani razu nie straciłes czujnosci i zdołałes się mu przeciwstawić*\nUff było blisko, niestety goblin zdołał zadać mi cios...")
+                    spowolnij_wypisywanie("Czuje się jednak trochę silniejszy!")
+                    spowolnij_wypisywanie("*Zauwazasz czerwony flakon leżący na ziemi i go podnisisz*")
+                    poziom+=1
+                    zycie-=1
+                    while True:
+                        odpowiedz=input()
+                        if(odpowiedz == "1"):
+                            spowolnij_wypisywanie("*Pijesz flakon z czerwonym płynem i zaczynasz się lepiej czuć*\nTrochę gorzkie, ale czuję się lepiej")
+                            spowolnij_wypisywanie("*Przechodzisz do następnego pokoju*")
+                            zycie+=1
+                            break
+                        elif(odpowiedz == "2"):
+                            spowolnij_wypisywanie("Nie będe ryzykował swoim życiem...Nie wiadomo co w nim jest...")
+                            spowolnij_wypisywanie("*Przechodzisz do następnego pokoju*")
+                            break
+                        else:
+                            print("*Błędna odpowiedź*")
+                    goblin_hp=0
+        czy_poprawna =False
+        spowolnij_wypisywanie("*Pomieszczenie jest ciemne i nie widzisz za dużo*")
+        if(pochodnia==True and kartka==True):
+            spowolnij_wypisywanie("*oswietlasz pomieszczenie pochodnią*\nTutaj prowadził mnie ukryty kod z kartki...\nW rogu pokoju na scianie znajdujesz ukytą dziure.\nCzy chcesz wsadzić do niej ręke?\n1.Tak\n2.Nie*")
+            while (czy_poprawna == False):
+                odpowiedz = input()
+                if (odpowiedz == "1"):
+                    spowolnij_wypisywanie("*Wkładasz ręke do dziury i czujesz jak cos ciebie ugryzło*\nAłaaa...boli, ale czuje się jakbym przybierał na sile...")
+                    zycie-=1
+                    poziom += 5
+                    czy_poprawna = True
+                elif (odpowiedz == "2"):
+                    spowolnij_wypisywanie("*Ignorujesz dziurę i idziesz dalej przez pokój*\nPewnie i tak były tam tylko pająki....prawda?")
+                    czy_poprawna = True
+                else:
+                    spowolnij_wypisywanie("*Zła odpowiedź*")
+        elif(pochodnia == True and kartka == False):
+            spowolnij_wypisywanie("*oswietlasz pomieszczenie, ale nie przyglądasz się dokładnie i nic nie zauważasz*\nChyba nic tu nie ma...")
+        elif(kartka == True and pochodnia == False):
+            spowolnij_wypisywanie("Hmmm miałem cos tu znaleźć ale nic nie widzę...")
+        spowolnij_wypisywanie("*Przy przechodzeniu przez pomieszczenie natrafiasz na mały flakon z jasnoniebieskim płynem*\nCiekawe co to jest...?")
+        spowolnij_wypisywanie("1.Wypij zawartosć flakonu\n2.przejdź do kolejnego pomieszczenia")
+        czy_poprawna = False
+        while(czy_poprawna==False):
+            odpowiedz = input()
+            if(odpowiedz == "1"):
+                spowolnij_wypisywanie("Hmmm czuję się silniejszy")
+                poziom+=1
+                czy_poprawna = True
+            elif(odpowiedz == "2"):
+                czy_poprawna = True
+            else:
+                print("*Błędna odpowiedź*")
+        spowolnij_wypisywanie("*Przechodzisz do kolejnego pomieszczenia gdzie widzisz większego goblina z mieczem*\n*Za goblinem widzisz drzwi z kratami, za którymi można zobaczyć mieniące się złoto*\n*Co zrobisz?*\n1.Zaatakuj goblina\n2.Przekup goblina\n3.Przekradnij się obok goblina")
+        Przekradnij_sie = False
+        goblin_hp = 1
+        goblin_poz = 5
+        odpowiedz = input()
+        while (goblin_hp > 0 and Przekradnij_sie == False):
+            if (odpowiedz == "1"):
+                spowolnij_wypisywanie("*atakujesz goblina, czy efektywnie?*")
+                losowa = randrange(poziom - goblin_poz, 10)
+                if (losowa > 3):
+                    poziom += 1
+                    spowolnij_wypisywanie("*Unieszkodliwiłes goblina bez narażania życia*\nUdało się! Czuję się silniejszy po tej walce!")
+                    goblin_hp = 0
+                else:
+                    poziom += 1
+                    zycie -= 2
+                    spowolnij_wypisywanie("*Goblin okazał się silniejszy niż myslałes, ale po ciężkiej walce wygrałes.*\nLedwo uszedłem z życiem.Ten goblkn był naprawdę silny")
+                    goblin_hp = 0
+            elif (odpowiedz == "2"):
+                spowolnij_wypisywanie("*Próbujesz przekupić goblina*\n*Czym chcesz go przekupić?*")
+                spowolnij_wypisywanie("1.Nie masz nic do zaoferowania")
+                if(pochodnia == True):
+                    spowolnij_wypisywanie("2.Przekup goblina pochodnią")
+                if(kartka == True):
+                    spowolnij_wypisywanie("3.Przekup goblina kartką")
+                czy_poprawna = False
+                while (czy_poprawna == False):
+                    odpowiedz = input()
+                    if (odpowiedz == "1"):
+                        spowolnij_wypisywanie("-Emmm czy chciałbys może przesunąć się i dać mi przejsć za nic?\n-Myslisz że jestem na tyle głupi żeby oddać ci moje złoto za nic? Nigdy!\nZa tą zniewagę musisz zginąć\n*Goblin Cię atakuje i odnosisz duże rany ale go pokonujesz*\nCo ja sobie myslałem...")
+                        zycie-=3
+                        poziom+=1
+                        goblin_hp = 0
+                        czy_poprawna = True
+                    if(pochodnia == True):
+                        if(odpowiedz == "2"):
+                            spowolnij_wypisywanie("-Goblinie czy nie potrzebujesz może pochodni? Dam Ci ją i przejdę dalej nie zawracając Ci głowy\n-Nie ma szans, nie jestem taki głupi, a teraz giń")
+                            spowolnij_wypisywanie("*Podejmujesz się walki z goblinem*")
+                            losowa = randrange(poziom - goblin_poz, 10)
+                            if (losowa > 3):
+                                poziom += 1
+                                spowolnij_wypisywanie("*Unieszkodliwiłes goblina bez narażania życia*\nUdało się! Czuję się silniejszy po tej walce!")
+                                goblin_hp = 0
+                                czy_poprawna = True
+                            else:
+                                poziom += 1
+                                zycie -= 2
+                                spowolnij_wypisywanie("*Goblin okazał się silniejszy niż myslałes, ale po ciężkiej walce wygrałes.*\nLedwo uszedłem z życiem.Ten goblkn był naprawdę silny")
+                                goblin_hp = 0
+                                czy_poprawna = True
+
+                    if(kartka == True):
+                        if (odpowiedz == "3"):
+                            spowolnij_wypisywanie("*Próbujesz przekupić goblina dziwną kartką którą znalazłes na początku*\n-Chciałbys może ustąpić mi przejscie, dam ci tą dziwną kartkę.\nOooo...Ekhem..Znaczy, mogę Ci pozwolić przejsć za tą kartkę, ale tylko ten jeden raz!\n-Okej to dogadani!")
+                            spowolnij_wypisywanie("*Przekupienie się udało*")
+                            goblin_hp = 0
+                            czy_poprawna = True
+                    else:
+                        print("*Błędna odpowiedź*")
+            elif (odpowiedz == "3"):
+                spowolnij_wypisywanie("*Próbujesz przekrasć się obok goblina...*")
+                losowa = randrange(poziom - goblin_poz+1, poziom)
+                if (losowa > goblin_poz-2):
+                    spowolnij_wypisywanie("*Udało ci się przejsć po cichu obok goblina*\n")
+                    Przekradnij_sie = True
+                else:
+                    spowolnij_wypisywanie("*Goblin zauważył jak nieudolnie próbujesz przekrasć się w kącie pokoju i cię zaatakował*\n*Na szczęscie ani razu nie straciłes czujnosci i zdołałes się mu przeciwstawić*\nUff było blisko, niestety goblin zdołał zadać mi cios...")
+                    spowolnij_wypisywanie("Czuje się jednak trochę silniejszy!")
+                    poziom += 1
+                    zycie -= 4
+                    goblin_hp = 0
+            else:
+                print("*Błędna odpowiedź*")
+        break
+        #dungeon po prawej stronie
+    elif(odpowiedz == "2"):
+        spowolnij_wypisywanie("*Przechodzisz przez drzwi po prawej stronie. Pomieszczenie to wydaję się puste, ale masz wrażenie że zaraz stanie się cos niespodziewanego*\n*Co zrobisz?*\n1.Przejdź ostrożnie przez pomieszczenie\n2.Przebiegnij przez pomieszczenie")
+        if (pochodnia == True):
+            spowolnij_wypisywanie("3.Przejdź ostrożnie przez pomieszczenie oswietlając drogę pochodnią")
+        czy_poprawna = False
+        while(czy_poprawna == False):
+            odpowiedz = input()
+            if(pochodnia == True and odpowiedz =="3"):
+                spowolnij_wypisywanie("*Przechodzisz ostrożnie przez pomieszczenie oswietlając wszystkie zakamarki, na końcu pomieszczenia docierasz do drzwi.*\n*Po przejsciu przez te tajemnicze pomieszczenie czujesz się trochę silniejszy, oraz żywszy.*")
+                zycie+=1
+                poziom+=1
+                czy_poprawna = True
+            elif(odpowiedz == "1"):
+                spowolnij_wypisywanie("*Przechodzisz ostrożnie przez pomieszczenie, niestety na samym końcu nadepnąłes na dziwny kamień*\n*Po nadepnieciu na kamień wystrzeliły do ciebie 3 strzały.*\n*Ile z nich trafiło?*")
+                losowa = randrange(0,3)
+                print(losowa)
+                if(losowa == 0):
+                    spowolnij_wypisywanie("Uff... uniknąłem wszystkich strzał")
+                    czy_poprawna = True
+                elif(losowa >0):
+                    spowolnij_wypisywanie("Ała dostałem...To napewno zostawi mi bliznę..")
+                    zycie-=losowa
+                    czy_poprawna = True
+            elif(odpowiedz == "2"):
+                spowolnij_wypisywanie("*Przebiegasz przez pokój, po drodzę odpalasz różne płytki naciskowe i w Twoją*\n*stronę poleciało bardzo dużo różnych pułapek.*\n*Otrzymałes bardzo dużo obrażeń w tej przeprawie*")
+                spowolnij_wypisywanie("AAAAA...Ufff ledwo uszedłem z życiem")
+                zycie-=4
+                czy_poprawna = True
+            else:
+                spowolnij_wypisywanie("*Podaj poprawną odpowiedz*")
+        spowolnij_wypisywanie("*na końcu pomieszczenia docierasz do drzwi.*\n*Po przejsciu przez te tajemnicze pomieszczenie czujesz się trochę silniejszy, oraz żywszy.*")
+        zycie += 1
+        poziom += 1
+        czy_poprawna = False
+        spowolnij_wypisywanie("*Jedyne co możesz zrobić to przejsć przez drzwi, więc przechodzisz do następnego pomieszczenia.*")
+
+        spowolnij_wypisywanie("\nWchodzisz do kolejnego pomieszczenia, gdzie stoi potężny, mistyczny posąg.")
+        spowolnij_wypisywanie("Jego oczy świecą dziwnym, nieziemskim światłem. Nagle posąg zaczyna mówić:")
+        spowolnij_wypisywanie("- Witaj, śmiałku. Mam dla Ciebie zagadkę, a odpowiedź zdecyduje o Twoim losie.\n")
+        spowolnij_wypisywanie("Posłuchaj uważnie: Co jest przed tobą, ale nigdy nie możesz tego dosięgnąć, co jest też za tobą ale nigdy nie możesz tego dotknąć?")
+
+
+        if pochodnia:
+            spowolnij_wypisywanie("\nPochodnia w Twojej dłoni oświetla starożytne symbole na podłodze. Wydaje się, że są to podpowiedzi:")
+            spowolnij_wypisywanie("Podpowiedź: 'To coś, co nieustannie się oddala od ciebie, niezależnie od tego, jak bardzo się starasz.'")
+        spowolnij_wypisywanie("1.Czas")
+        spowolnij_wypisywanie("2.Cień")
+        spowolnij_wypisywanie("3.Cel")
+
+        czy_poprawna = False
+        while (czy_poprawna==False):
+            odpowiedz = input()
+
+            if odpowiedz == "1":
+                spowolnij_wypisywanie("*Odpowiadasz 'Czas' i posąg unosi ręce w geście aprobaty.*")
+                spowolnij_wypisywanie("*Twoja odpowiedź jest poprawna! Czujesz, jak Twoje ciało napełnia się nową energią.*")
+                poziom += 3
+                zycie += 3
+                czy_poprawna = True
+            elif odpowiedz == "2":
+                spowolnij_wypisywanie("*Odpowiadasz 'Cień' i posąg kiwa głową, jakby rozczarowany.*")
+                spowolnij_wypisywanie("Niestety to nie jest właściwa odpowiedź...")
+                obrażenia = randrange(1, 3)
+                zycie -= obrażenia
+                spowolnij_wypisywanie("*Czujesz jak mistyczna moc odbiera Ci siłe*")
+                czy_poprawna = True
+            elif odpowiedz == "3":
+                spowolnij_wypisywanie("*Odpowiadasz 'Cel' i posąg zaczyna szumieć, jakby był rozbawiony.*")
+                spowolnij_wypisywanie("Niestety to nie jest właściwa odpowiedź...")
+                obrażenia = randrange(1, 3)
+                zycie -= obrażenia
+                spowolnij_wypisywanie("*Czujesz jak mistyczna moc odbiera Ci siłe*")
+                czy_poprawna = True
+            else:
+                spowolnij_wypisywanie("Podaj poprawną odpowiedź!")
+
+        spowolnij_wypisywanie("*Po tej dziwnej interakcji posąg przestaje się poruszać,\na ty zastanawiasz sie co się wydarzyło*\nCzas isć dalej")
+        spowolnij_wypisywanie("*W oddali widzisz drzwi, z których mieni się cos złotego.*\n*Podbiegasz do drzwi i przechodzisz do nsatępnego pokoju*")
+        break
+    else:
+        spowolnij_wypisywanie("1.Idź przez stalowe drzwi po lewej\n2.Przejdź przez drewniane drzwi po stronie prawej")
+    break
+
+spowolnij_wypisywanie("*Doszedłes do następnego pokoju. Złoto które widziałes okazało się fałszywe.*\n*Widzisz drzwi które są jakby lustrzanym odbiciem drzwi z których wyszedłes.*\n*Widzisz też kolejne drzwi, które prowadzą dalej. Nie jestes Jednak pewien czy zdołasz isć dalej \nw stanie w którym teraz jestes.*")
+
+if(zycie <= 0):
+    spowolnij_wypisywanie("*Jestes na skraju swojego życia, raczej nie pójdziesz dalej niż ten pokój*")
+elif(zycie == 1):
+    spowolnij_wypisywanie("*Ledwo żywy udajessz się na dalszą podróż w celu odnalezienia wyjscia, oraz czegos do uleczenia swoich ran*")
+elif(zycie == 2 or zycie == 3):
+    spowolnij_wypisywanie("*Odniosłes poważne obrażenia, ale przynajmniej możesz normalnie chodzić.\nTeraz udasz się w dalszą podróż aby uciec z tego labiryntu*")
+elif(zycie == 4 or zycie == 5):
+    spowolnij_wypisywanie("*Nie odniosłes prawie żadnych obrażeń. Może małe drasnięcia.\nW takim stanie powinno udać Ci się uciec z tego przeklętego miejsca*")
+elif(zycie > 5):
+    spowolnij_wypisywanie("*Czujesz się lepiej niż na początku.\nW takim stanie uciekniesz z tego miejsca na spokojnie*")
+if(poziom <= 1):
+    spowolnij_wypisywanie("*Jestes też tak samo słaby w walce jak przed rozpoczęciem podrózy*")
+elif(poziom>1 and poziom<3):
+    spowolnij_wypisywanie("*Jestes trochę silniejszy niż na początku*")
+elif(poziom>=3):
+    spowolnij_wypisywanie("*Zdobyles duże doswiadczenie w walce*")
+spowolnij_wypisywanie("\n\n------------\n   Koniec")
